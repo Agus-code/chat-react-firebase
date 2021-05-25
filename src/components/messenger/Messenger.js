@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, useRef } from 'react';
 import './Messenger.css'
 import {db} from './../../firebase'
 import { AuthContext } from '../../provider/AuthContext';
@@ -9,6 +9,7 @@ const Messenger = ()=>{
 
     const [ writeMessage, setWriteMessage] = useState("");
     const [ messages, setMessages] = useState()
+    const scrollRef = useRef()
 
     const handleNewMessagge = async()=>{
         if(writeMessage!==""){
@@ -40,6 +41,11 @@ const Messenger = ()=>{
     useEffect(()=>{
         getMessages()
     },[])
+
+
+    useEffect(()=>{
+        scrollRef.current?.scrollIntoView()
+    },[messages])
     return(
         <>
             <div className="messenger">
@@ -52,7 +58,7 @@ const Messenger = ()=>{
                                 (
                                     messages.map((msg)=>{
                                         return(
-                                            <li className="messenger-list-items" key={msg.id}>
+                                            <li className="messenger-list-items" key={msg.id} ref={scrollRef}>
                                                 <div className={`msg-box ${userData.email === msg.owner.id ? "own" : ""}`}>
                                                     <div className="msg-box__img-container">
                                                         <img
