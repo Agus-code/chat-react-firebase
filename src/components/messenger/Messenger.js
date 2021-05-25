@@ -63,6 +63,7 @@ const Messenger = ()=>{
                                                     <div className="msg-box__img-container">
                                                         <img
                                                             src={msg.owner.photo}
+                                                            title={msg.owner.id}
                                                             alt="user img"
                                                             className="msg-box__img"
                                                             />
