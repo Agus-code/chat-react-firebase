@@ -124,11 +124,22 @@
     }
     .messenger-list{
         max-height: calc(100vh - 210px);
+        margin-top: 10px;
+        margin-left: 8px;
+    }
+    .messenger-chat{
+        margin-bottom: 3px;
     }
     .msg-box__img-container{
         width: 45px;
         height: 45px;
         min-width: 45px;
+    }
+    .messenger-send-box{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
     }
     .messenger-send-box__input{
         width: 75%;
@@ -137,10 +148,11 @@
         width: 25%;
     }
     .msg-box__txt{
-        padding: 3px;
-        padding-right: 9px;
+        padding: 5px;
+        padding-right: 15px;
     }
     .msg-box.own .msg-box__txt{
-        padding-left: 9px;
+        padding-right: 5px;
+        padding-left: 15px;
     }
 }
