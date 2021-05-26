@@ -118,12 +118,11 @@
     }
     .messenger{
         width: 90%;
-    }
-    .messenger{
         min-height: calc(100vh - 100px);
     }
     .messenger-list{
         max-height: calc(100vh - 210px);
+        overflow: hidden;
     }
     .msg-box__img-container{
         width: 45px;

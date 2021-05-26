@@ -20,12 +20,12 @@ const Messenger = ()=>{
         const date = new Date();
 
         //set to firebase
+        setWriteMessage("")
         await db.collection("msgs").doc().set({
             owner : {id : userData.email, photo : userData.photo},
             text : writeMessage,
             time : date.getTime()
         })
-            .then(()=>setWriteMessage(""))
     }
 
     const getMessages = ()=>{
