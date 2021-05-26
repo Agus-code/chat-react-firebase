@@ -6,8 +6,6 @@ const Header = ()=>{
 
     const { isLogged, userData } = useContext(AuthContext)
 
-    console.log(userData)
-
     return(
         <>
             <header className="header">

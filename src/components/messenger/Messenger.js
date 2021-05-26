@@ -12,12 +12,12 @@ const Messenger = ()=>{
     const scrollRef = useRef()
 
     const handleNewMessagge = async()=>{
-        if(writeMessage!==""){
-            console.log(writeMessage)
+        if(writeMessage.length===0){
+            return 0
         }
 
         //get date
-        const date = new Date;
+        const date = new Date();
 
         //set to firebase
         await db.collection("msgs").doc().set({
