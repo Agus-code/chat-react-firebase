@@ -29,7 +29,7 @@ const Messenger = ()=>{
     }
 
     const getMessages = ()=>{
-        db.collection("msgs").orderBy("time", "asc").onSnapshot((querySnapshot)=>{
+        db.collection("msgs").onSnapshot((querySnapshot)=>{
             let msgs = [];
             querySnapshot.forEach(doc=>{
                 msgs.push({...doc.data(), id : doc.id})
@@ -56,7 +56,7 @@ const Messenger = ()=>{
                             {messages!==undefined 
                                 ?
                                 (
-                                    messages.map((msg)=>{
+                                    messages.sort((a,b)=>a.time - b.time).map((msg)=>{
                                         return(
                                             <li className="messenger-list-items" key={msg.id} ref={scrollRef}>
                                                 <div className={`msg-box ${userData.email === msg.owner.id ? "own" : ""}`}>
